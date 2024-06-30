@@ -34,7 +34,7 @@
          }
       }
       .right {
-         touch-action: none;
+        
          display: flex;
          flex-direction: column;
          justify-content: space-between;
@@ -45,7 +45,7 @@
          }
       }
       svg {
-         touch-action: none;
+         
          cursor: default;
          width: 20px;
          height: 20px;
