@@ -11,7 +11,7 @@
       text-decoration: line-through;
       text-decoration-color: rgba(255, 0, 0, 0.76);
       text-decoration-thickness: 3px;
-      opacity: .7;
+      opacity: 0.7;
    }
    .todo {
       position: relative;
@@ -34,6 +34,7 @@
          }
       }
       .right {
+         touch-action: none;
          display: flex;
          flex-direction: column;
          justify-content: space-between;
@@ -44,6 +45,7 @@
          }
       }
       svg {
+         touch-action: none;
          cursor: default;
          width: 20px;
          height: 20px;
