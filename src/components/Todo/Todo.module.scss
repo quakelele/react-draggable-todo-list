@@ -1,0 +1,64 @@
+.wrapper {
+   position: absolute;
+   cursor: move;
+   min-width: 225px;
+   color: black;
+   padding: 10px 15px;
+   border-radius: 5px;
+   border-top: 1px solid gray;
+   border-bottom: 1px solid gray;
+   .active {
+      text-decoration: line-through;
+      text-decoration-color: rgba(255, 0, 0, 0.76);
+      text-decoration-thickness: 3px;
+      opacity: .7;
+   }
+   .todo {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      flex-direction: row;
+      justify-content: space-between;
+      .editInputBlock {
+         display: flex;
+         input {
+            border: 0;
+            font-size: 12px;
+            border-bottom: 1px solid whitesmoke;
+            background: 0;
+            color: white;
+            outline: none;
+            font-family: 'intro';
+         }
+      }
+      .right {
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         gap: 5px;
+         .checkbox {
+            opacity: 1;
+            cursor: pointer;
+         }
+      }
+      svg {
+         cursor: default;
+         width: 20px;
+         height: 20px;
+         background: 0;
+         border: 0;
+         &:hover {
+            color: red;
+            cursor: pointer;
+         }
+      }
+   }
+   h3 {
+      font-family: 'qavqav';
+      font-size: 22px;
+      padding: 0;
+      margin: 0;
+   }
+}

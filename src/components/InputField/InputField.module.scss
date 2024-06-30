@@ -1,0 +1,34 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+position: absolute;
+    input {
+        height: 30px;
+        widows: 250px;
+        border: 0;
+        border-bottom: 1px solid whitesmoke;
+        background: 0;
+        color: white;
+        padding: 0 10px;
+        outline: none;
+        font-family: 'intro';
+    }
+    button {
+        width: 100px;
+        height: 30px;font-family: 'intro';
+
+        font-size: 12px;
+        background: none;
+        border: 1px solid whitesmoke;
+        color: whitesmoke;
+        margin-left: 10px;
+        transition: 0.2s all ease-in;
+        &:hover {
+            background: whitesmoke;
+            color: #222222;
+            cursor: pointer;
+            transition: 0.4s all ease-in-out;
+        }
+    }
+}
