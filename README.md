@@ -1,3 +1,5 @@
 # React + TypeScript + Vite
 # react-draggable SCSS, JavaScript, TypeScript, React JS, LocalStorage, Draggable and etc
+
+ссылка на тестовую версию - https://react-draggable-todo-list.vercel.app/ 
 ![todo](https://github.com/quakelele/react-draggable-todo-list/assets/154896596/7121e5e8-f8ba-4ccc-b65b-3637cfb5ca4b)
