@@ -1,5 +1,6 @@
 .wrapper {
    margin-right: -410px;
+
    button {
       width: 100px;
       height: 30px;
@@ -17,5 +18,17 @@
          cursor: pointer;
          transition: 0.4s all ease-in-out;
       }
+   }
+}
+
+:global(.ant-modal-root .ant-modal-mask) {
+   background-color: rgba(80, 81, 105, 0.9) !important;
+
+}
+
+.modal {
+   :global(.ant-modal-content) {
+      background: none !important;
+      padding: 0;
    }
 }

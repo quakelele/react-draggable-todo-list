@@ -1,7 +1,7 @@
 .wrapper {
    position: absolute;
    cursor: move;
-   min-width: 225px;
+   min-width: 255px;
    padding: 10px 15px;
    border-radius: 5px;
    border-top: 2px solid rgb(255, 255, 255);
@@ -13,7 +13,6 @@
       text-decoration-color: rgba(255, 0, 0, 0.76);
       text-decoration-thickness: 2px;
       opacity: 0.7;
-      
    }
    .todo {
       position: relative;
@@ -33,14 +32,13 @@
             color: white;
             outline: none;
             font-family: 'intro';
-            
          }
       }
       .right {
          display: flex;
          flex-direction: column;
          justify-content: space-between;
-         gap: 5px;
+         gap: 3px;
          .checkbox {
             opacity: 1;
             cursor: pointer;
@@ -60,7 +58,7 @@
    }
    h3 {
       font-family: 'sfns';
-      font-size: 22px;
+      font-size: 18px;
       padding: 0;
       margin: 0;
       color: white;

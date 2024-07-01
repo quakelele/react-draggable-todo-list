@@ -2,27 +2,42 @@ import css from './Todo.module.scss'
 import { TodoTypes } from 'types/_types'
 import { AiTwotoneDelete } from 'react-icons/ai'
 import { CiEdit, CiSaveDown2 } from 'react-icons/ci'
+import { GoBookmarkSlash, GoBookmarkSlashFill } from 'react-icons/go'
 import { useState } from 'react'
 
 type Props = {
    todo: TodoTypes
    todos: TodoTypes[]
+   favorites: TodoTypes[]
    setTodos: (arg: TodoTypes[]) => void
+   setFavorites: (arg: TodoTypes[]) => void
 }
 
-export const Todo = ({ todos, todo, setTodos }: Props) => {
+export const Todo = ({ todos, todo, setTodos, favorites, setFavorites }: Props) => {
    const [edit, setEdit] = useState<string | null>(null)
    const [editInputValue, setEditInputValue] = useState(todo.title)
+   const isInFavorites = favorites.find(item => item.id === todo.id)
+   const deleteFromFavorites = () => {
+      setFavorites([...favorites].filter(item => item.id !== todo.id))
+   }
+
+   const addToFavorites = () => {
+      if (!isInFavorites) {
+         setFavorites([...favorites, todo])
+         return
+      }
+      deleteFromFavorites()
+   }
    const saveTodoHandler = (id: string) => {
-      setTodos(
-         [...todos].map(item => {
-            if (item.id === id) {
-               return { ...item, title: editInputValue }
-            }
-            return item
-         })
-      )
+      const updateTodos = [...todos].map(item => {
+         if (item.id === id) {
+            return { ...item, title: editInputValue }
+         }
+         return item
+      })
+      setTodos(updateTodos)
       setEdit(null)
+      setFavorites(updateTodos)
    }
 
    const deleteTodo = (id: string) => {
@@ -39,6 +54,7 @@ export const Todo = ({ todos, todo, setTodos }: Props) => {
          })
       )
    }
+
    return (
       <div className={css.wrapper} style={{ backgroundColor: todo.color }}>
          <div className={css.todo}>
@@ -58,7 +74,11 @@ export const Todo = ({ todos, todo, setTodos }: Props) => {
             <div className={`${css.right} ${css.nonDraggable}`}>
                <AiTwotoneDelete className={css.nonDraggable} onClick={() => deleteTodo(todo.id)} />
                <CiEdit className={css.nonDraggable} onClick={() => setEdit(todo.id)} />
-
+               {isInFavorites ? (
+                  <GoBookmarkSlashFill style={{ fill: 'white' }} onClick={addToFavorites} />
+               ) : (
+                  <GoBookmarkSlash onClick={addToFavorites} />
+               )}
                <input
                   className={`${css.checkbox} ${css.nonDraggable}`}
                   checked={todo.completed}

@@ -8,10 +8,14 @@ import { Favorites } from '@components/Favorites/Favorites'
 
 export const Layout = () => {
    const [todos, setTodos] = useState<TodoTypes[]>(JSON.parse(localStorage.getItem('todos') || '[]'))
+   const [favorites, setFavorites] = useState<TodoTypes[]>(JSON.parse(localStorage.getItem('favorites') || '[]'))
 
    useEffect(() => {
       localStorage.setItem('todos', JSON.stringify(todos))
-   }, [todos])
+      localStorage.setItem('favorites', JSON.stringify(favorites))
+   }, [todos,favorites])
+
+
 
    const updatePos = (data: any, index: number) => {
       //  дичь из доки redraggable
@@ -23,7 +27,7 @@ export const Layout = () => {
    return (
       <div className={css.wrapper}>
             <InputField setTodos={setTodos} todos={todos} />
-            <Favorites />
+            <Favorites favorites={favorites} setFavorites={setFavorites}/>
     
 
          {todos.map((todo, index) => (
@@ -33,7 +37,7 @@ export const Layout = () => {
                defaultPosition={todo.defaultPosition}
                key={todo.id}>
                <div>
-                  <Todo setTodos={setTodos} todo={todo} todos={todos} />
+                  <Todo favorites={favorites} setFavorites={setFavorites} setTodos={setTodos} todo={todo} todos={todos} />
                </div>
             </Draggable>
          ))}
