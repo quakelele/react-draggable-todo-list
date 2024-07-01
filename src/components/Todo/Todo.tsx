@@ -43,24 +43,24 @@ export const Todo = ({ todos, todo, setTodos }: Props) => {
       <div className={css.wrapper} style={{ backgroundColor: todo.color }}>
          <div className={css.todo}>
             {edit === todo.id ? (
-               <div className={css.editInputBlock}>
+               <div className={`${css.editInputBlock} ${css.nonDraggable}`}>
                   <input
-                     className={todo.completed ? css.active : ''}
+                     className={todo.completed ? `${css.active} ${css.nonDraggable}` : ''}
                      onChange={e => setEditInputValue(e.target.value)}
                      value={editInputValue}
                      type="text"
                   />{' '}
-                  <CiSaveDown2 onClick={() => saveTodoHandler(todo.id)} />
+                  <CiSaveDown2 className={css.nonDraggable} onClick={() => saveTodoHandler(todo.id)} />
                </div>
             ) : (
                <h3 className={todo.completed ? css.active : ''}>{todo.title}</h3>
             )}
-            <div className={css.right}>
-               <AiTwotoneDelete onClick={() => deleteTodo(todo.id)} />
-               <CiEdit onClick={() => setEdit(todo.id)} />
+            <div className={`${css.right} ${css.nonDraggable}`}>
+               <AiTwotoneDelete className={css.nonDraggable} onClick={() => deleteTodo(todo.id)} />
+               <CiEdit className={css.nonDraggable} onClick={() => setEdit(todo.id)} />
 
                <input
-                  className={css.checkbox}
+                  className={`${css.checkbox} ${css.nonDraggable}`}
                   checked={todo.completed}
                   onChange={() => checkboxToggler(todo.id)}
                   type="checkbox"

@@ -24,7 +24,7 @@ export const Layout = () => {
          <InputField setTodos={setTodos} todos={todos} />
          {todos.map((todo, index) => (
             <Draggable
-               cancel=".button"
+            cancel={`.${css.nonDraggable}`}
                onStop={(_, data) => updatePos(data, index)}
                defaultPosition={todo.defaultPosition}
                key={todo.id}>
