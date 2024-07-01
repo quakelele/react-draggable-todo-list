@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'qavqav';
-    src: local('Hitch Hike'), local('HitchHike'), url('./assets/fonts/beermoney.woff2') format('woff2'),
+    src: local('Hitch Hike'), local('qavqav'), url('./assets/fonts/beermoney.woff2') format('woff2'),
       url('./assets/fonts/beermoney.woff') format('woff'), url('./assets/fonts/beermoney.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
@@ -13,5 +13,15 @@
       url('./assets/fonts/intro.woff') format('woff'), url('./assets/fonts/intro.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
+  }
+@font-face {
+    font-family: 'sfns';
+    src: local('Hitch Hike'), local('sfns'), url('./assets/fonts/sfns_display_bold.woff2') format('woff2'),
+      url('./assets/fonts/sfns_display_bold.woff') format('woff'), url('./assets/fonts/sfns_display_bold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  html {
+    scrollbar-gutter: stable;
   }
   

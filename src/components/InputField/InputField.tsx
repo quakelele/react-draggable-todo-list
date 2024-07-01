@@ -9,7 +9,6 @@ type Props = {
    setTodos: (arg: TodoTypes[]) => void
 }
 
-
 export const InputField = ({ setTodos, todos }: Props) => {
    const [value, setValue] = useState('')
 
@@ -22,7 +21,7 @@ export const InputField = ({ setTodos, todos }: Props) => {
          title: value,
          id: uuidv4(),
          completed: false,
-         color: randomColor({ luminosity: 'light', format: 'hsla'}),
+         color: randomColor({ luminosity: 'bright', format: 'rgba', alpha: 0.5 }),
          defaultPosition: { x: randomValues(-300, 300), y: randomValues(-300, 300) },
       }
       if (value.trim() !== '') {
@@ -31,16 +30,17 @@ export const InputField = ({ setTodos, todos }: Props) => {
       setValue('')
    }
 
-   const keyPressEnter = (e:any) => {
+   const keyPressEnter = (e: any) => {
       if (e.which === 13) {
          addTodo()
       }
    }
+
    return (
       <div className={css.wrapper}>
          <input
             type="text"
-            placeholder="enter something"
+            placeholder="type something..."
             value={value}
             onKeyDown={e => keyPressEnter(e)}
             onChange={e => setValue(e.target.value)}

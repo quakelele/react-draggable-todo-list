@@ -2,16 +2,18 @@
    position: absolute;
    cursor: move;
    min-width: 225px;
-   color: black;
    padding: 10px 15px;
    border-radius: 5px;
-   border-top: 1px solid gray;
-   border-bottom: 1px solid gray;
+   border-top: 2px solid rgb(255, 255, 255);
+   border-right: 1px solid rgb(255, 255, 255);
+   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+   box-shadow: 0 0 5px #03e9f4, 0 0 15px #03e0f4, 0 0 25px #03e9f4, 0 0 100px #03e0f4;
    .active {
       text-decoration: line-through;
       text-decoration-color: rgba(255, 0, 0, 0.76);
       text-decoration-thickness: 3px;
       opacity: 0.7;
+      
    }
    .todo {
       position: relative;
@@ -31,6 +33,7 @@
             color: white;
             outline: none;
             font-family: 'intro';
+            
          }
       }
       .right {
@@ -50,15 +53,16 @@
          background: 0;
          border: 0;
          &:hover {
-            color: red;
+            color: rgb(255, 255, 255);
             cursor: pointer;
          }
       }
    }
    h3 {
-      font-family: 'qavqav';
+      font-family: 'sfns';
       font-size: 22px;
       padding: 0;
       margin: 0;
+      color: white;
    }
 }
