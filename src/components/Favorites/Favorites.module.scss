@@ -1,11 +1,9 @@
 .wrapper {
    margin-right: -410px;
-
    button {
       width: 100px;
       height: 30px;
       font-family: 'intro';
-
       font-size: 12px;
       background: none;
       border: 1px solid whitesmoke;
@@ -22,13 +20,16 @@
 }
 
 :global(.ant-modal-root .ant-modal-mask) {
-   background-color: rgba(80, 81, 105, 0.9) !important;
-
+   background-color: rgba(4, 71, 109, 0.9) !important;
 }
-
+:global(.ant-modal) {
+   margin: 170px 400px;
+}
 .modal {
    :global(.ant-modal-content) {
       background: none !important;
+      box-shadow: none !important;
       padding: 0;
+      z-index: 150;
    }
 }
