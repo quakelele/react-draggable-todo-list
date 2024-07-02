@@ -3,7 +3,7 @@ export type TodoTypes = {
    id: string
    completed?: boolean
    defaultPosition: Position
-   color: string
+   color: string 
 }
 
 type Position = {

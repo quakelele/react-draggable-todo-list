@@ -1,5 +1,4 @@
 .wrapper {
-   margin-right: -410px;
    button {
       width: 100px;
       height: 30px;
@@ -8,7 +7,6 @@
       background: none;
       border: 1px solid whitesmoke;
       color: whitesmoke;
-      margin-left: 10px;
       transition: 0.2s all ease-in;
       &:hover {
          background: whitesmoke;
@@ -20,7 +18,7 @@
 }
 
 :global(.ant-modal-root .ant-modal-mask) {
-   background-color: rgba(4, 71, 109, 0.9) !important;
+   background-color: var(--random-bg-color) !important;
 }
 :global(.ant-modal) {
    margin-top: 160px;

@@ -2,7 +2,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   position: absolute;
+   // position: absolute;
    input {
       height: 30px;
       widows: 250px;
@@ -28,6 +28,16 @@
       &:hover {
          background: whitesmoke;
          color: #222222;
+         cursor: pointer;
+         transition: 0.4s all ease-in-out;
+      }
+   }
+   svg {color: #ffffff;
+      width: 18px;
+      height: 18px;
+      &:hover {
+         fill: whitesmoke;
+         color: #cecece;
          cursor: pointer;
          transition: 0.4s all ease-in-out;
       }

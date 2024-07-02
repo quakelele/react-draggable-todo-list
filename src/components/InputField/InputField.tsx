@@ -1,9 +1,9 @@
+import { v4 as uuidv4 } from 'uuid'
 import { TodoTypes } from 'types/_types'
 import { useState } from 'react'
-import css from './InputField.module.scss'
-import { v4 as uuidv4 } from 'uuid'
+import { GrClear } from 'react-icons/gr'
 import randomColor from 'randomcolor'
-
+import css from './InputField.module.scss'
 type Props = {
    todos: TodoTypes[]
    setTodos: (arg: TodoTypes[]) => void
@@ -45,6 +45,7 @@ export const InputField = ({ setTodos, todos }: Props) => {
             onKeyDown={e => keyPressEnter(e)}
             onChange={e => setValue(e.target.value)}
          />
+         <GrClear onClick={() => setTodos([])} />
          <button onClick={addTodo}>add</button>
       </div>
    )

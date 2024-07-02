@@ -1,20 +1,14 @@
+import { useLocalStorage } from '../hooks/useLocalStorage'
 import { InputField } from '../components/InputField/InputField'
-import { useState, useEffect } from 'react'
-import css from './Layout.module.scss'
-import { Todo } from '@components/Todo/Todo'
-import { TodoTypes } from 'types/_types'
-import Draggable from 'react-draggable'
 import { Favorites } from '@components/Favorites/Favorites'
-
+import { TodoTypes } from 'types/_types'
+import { Todo } from '@components/Todo/Todo'
+import Draggable from 'react-draggable'
+import css from './Layout.module.scss'
 export const Layout = () => {
-   const [todos, setTodos] = useState<TodoTypes[]>(JSON.parse(localStorage.getItem('todos') || '[]'))
-   const [favorites, setFavorites] = useState<TodoTypes[]>(JSON.parse(localStorage.getItem('favorites') || '[]'))
 
-   useEffect(() => {
-      localStorage.setItem('todos', JSON.stringify(todos))
-      localStorage.setItem('favorites', JSON.stringify(favorites))
-   }, [todos,favorites])
-
+const [todos, setTodos] = useLocalStorage("[]","todos")
+const [favorites,setFavorites] = useLocalStorage("[]","favorites")
 
 
    const updatePos = (data: any, index: number) => {
@@ -23,21 +17,26 @@ export const Layout = () => {
       newArray[index].defaultPosition = { x: data.x, y: data.y }
       setTodos(newArray)
    }
-
    return (
       <div className={css.wrapper}>
+         <div className={css.top}>
             <InputField setTodos={setTodos} todos={todos} />
-            <Favorites favorites={favorites} setFavorites={setFavorites}/>
-    
-
-         {todos.map((todo, index) => (
+            <Favorites favorites={favorites} setFavorites={setFavorites} />
+         </div>
+         {todos.map((todo:TodoTypes, index:number) => (
             <Draggable
                cancel={`.${css.nonDraggable}`}
                onStop={(_, data) => updatePos(data, index)}
                defaultPosition={todo.defaultPosition}
                key={todo.id}>
-               <div className={css.favorites}>
-                  <Todo favorites={favorites} setFavorites={setFavorites} setTodos={setTodos} todo={todo} todos={todos} />
+               <div className={css.todo}>
+                  <Todo
+                     favorites={favorites}
+                     setFavorites={setFavorites}
+                     setTodos={setTodos}
+                     todo={todo}
+                     todos={todos}
+                  />
                </div>
             </Draggable>
          ))}

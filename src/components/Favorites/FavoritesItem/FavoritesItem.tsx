@@ -1,6 +1,6 @@
-import css from './FavoritesItem.module.scss'
-import { TodoTypes } from 'types/_types'
 import { AiTwotoneDelete } from 'react-icons/ai'
+import { TodoTypes } from 'types/_types'
+import css from './FavoritesItem.module.scss'
 
 type Props = {
    setFavorites: (arg: TodoTypes[]) => void

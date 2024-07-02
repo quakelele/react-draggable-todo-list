@@ -1,9 +1,9 @@
-import css from './Todo.module.scss'
-import { TodoTypes } from 'types/_types'
-import { AiTwotoneDelete } from 'react-icons/ai'
-import { CiEdit, CiSaveDown2 } from 'react-icons/ci'
 import { GoBookmarkSlash, GoBookmarkSlashFill } from 'react-icons/go'
+import { CiEdit, CiSaveDown2 } from 'react-icons/ci'
+import { AiTwotoneDelete } from 'react-icons/ai'
+import { TodoTypes } from 'types/_types'
 import { useState } from 'react'
+import css from './Todo.module.scss'
 
 type Props = {
    todo: TodoTypes
