@@ -17,6 +17,7 @@ export const Todo = ({ todos, todo, setTodos, favorites, setFavorites }: Props) 
    const [edit, setEdit] = useState<string | null>(null)
    const [editInputValue, setEditInputValue] = useState(todo.title)
    const isInFavorites = favorites.find(item => item.id === todo.id)
+
    const deleteFromFavorites = () => {
       setFavorites([...favorites].filter(item => item.id !== todo.id))
    }
@@ -28,16 +29,24 @@ export const Todo = ({ todos, todo, setTodos, favorites, setFavorites }: Props) 
       }
       deleteFromFavorites()
    }
+
    const saveTodoHandler = (id: string) => {
-      const updateTodos = [...todos].map(item => {
-         if (item.id === id) {
-            return { ...item, title: editInputValue }
+      const updateTodos = [...todos].map(todo => {
+         if (todo.id === id) {
+            return { ...todo, title: editInputValue }
          }
-         return item
+         return todo
       })
+
+      const updateTitleFavorites = favorites.map(favorite => {
+         if (favorite.id === id) {
+            return { ...favorite, title: editInputValue }
+         }
+         return favorite
+      })
+      setFavorites(updateTitleFavorites)
       setTodos(updateTodos)
       setEdit(null)
-      setFavorites(updateTodos)
    }
 
    const deleteTodo = (id: string) => {

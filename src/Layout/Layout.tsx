@@ -36,7 +36,7 @@ export const Layout = () => {
                onStop={(_, data) => updatePos(data, index)}
                defaultPosition={todo.defaultPosition}
                key={todo.id}>
-               <div>
+               <div className={css.favorites}>
                   <Todo favorites={favorites} setFavorites={setFavorites} setTodos={setTodos} todo={todo} todos={todos} />
                </div>
             </Draggable>
