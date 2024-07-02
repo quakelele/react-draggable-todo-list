@@ -2,8 +2,8 @@ import { v4 as uuidv4 } from 'uuid'
 import { TodoTypes } from 'types/_types'
 import { useState } from 'react'
 import { GrClear } from 'react-icons/gr'
-import randomColor from 'randomcolor'
 import css from './InputField.module.scss'
+import randomColor from 'randomcolor'
 type Props = {
    todos: TodoTypes[]
    setTodos: (arg: TodoTypes[]) => void
