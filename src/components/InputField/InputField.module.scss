@@ -35,6 +35,8 @@
    svg {color: #ffffff;
       width: 18px;
       height: 18px;
+      padding: 0;
+      margin-right: -5px;
       &:hover {
          fill: whitesmoke;
          color: #cecece;
