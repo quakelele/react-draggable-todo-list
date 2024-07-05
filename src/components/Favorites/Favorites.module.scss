@@ -18,7 +18,9 @@
 }
 
 :global(.ant-modal-root .ant-modal-mask) {
-   background-color: var(--random-bg-color) !important;
+   // background-color: var(--random-bg-color) !important;
+   background-color: black !important;
+   opacity: 0.7 !important;
 }
 :global(.ant-modal) {
    margin-top: 160px;

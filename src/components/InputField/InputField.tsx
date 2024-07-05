@@ -12,7 +12,7 @@ type Props = {
 export const InputField = ({ setTodos, todos }: Props) => {
    const [value, setValue] = useState('')
 
-   const onChange = e => {
+   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value)
    }
    const randomValues = (min: number, max: number) => {
@@ -28,7 +28,7 @@ export const InputField = ({ setTodos, todos }: Props) => {
          defaultPosition: { x: randomValues(-300, 300), y: randomValues(-300, 300) },
       }
 
-      if (value.trim() !== '') {
+      if (value.trim() ) {
          if (todos.length <= 9) {
             setTodos([...todos, todoObject])
             return
@@ -42,6 +42,8 @@ export const InputField = ({ setTodos, todos }: Props) => {
       if (e.which === 13) {
          addTodo()
       }
+      setValue('')
+
    }
 
    return (
