@@ -12,6 +12,9 @@ type Props = {
 export const InputField = ({ setTodos, todos }: Props) => {
    const [value, setValue] = useState('')
 
+   const onChange = e => {
+      setValue(e.target.value)
+   }
    const randomValues = (min: number, max: number) => {
       return Math.random() * (max - min) + min
    }
@@ -24,8 +27,13 @@ export const InputField = ({ setTodos, todos }: Props) => {
          color: randomColor({ luminosity: 'bright', format: 'rgba', alpha: 0.5 }),
          defaultPosition: { x: randomValues(-300, 300), y: randomValues(-300, 300) },
       }
+
       if (value.trim() !== '') {
-         setTodos([...todos, todoObject])
+         if (todos.length <= 9) {
+            setTodos([...todos, todoObject])
+            return
+         }
+         setTodos([...todos.splice(1), todoObject])
       }
       setValue('')
    }
@@ -43,7 +51,7 @@ export const InputField = ({ setTodos, todos }: Props) => {
             placeholder="type something..."
             value={value}
             onKeyDown={e => keyPressEnter(e)}
-            onChange={e => setValue(e.target.value)}
+            onChange={onChange}
          />
          <GrClear onClick={() => setTodos([])} />
          <button onClick={addTodo}>add</button>
