@@ -22,9 +22,9 @@
    background-color: black !important;
    opacity: 0.7 !important;
 }
-:global(.ant-modal) {
-   margin-top: 160px;
-}
+// :global(.ant-modal) {
+//    margin-top: 160px;
+// }
 .modal {
    :global(.ant-modal-content) {
       background: none !important;
