@@ -6,10 +6,8 @@ import { Todo } from '@components/Todo/Todo'
 import Draggable from 'react-draggable'
 import css from './Layout.module.scss'
 export const Layout = () => {
-
-const [todos, setTodos] = useLocalStorage("[]","todos")
-const [favorites,setFavorites] = useLocalStorage("[]","favorites")
-
+   const [todos, setTodos] = useLocalStorage('[]', 'todos')
+   const [favorites, setFavorites] = useLocalStorage('[]', 'favorites')
 
    const updatePos = (data: any, index: number) => {
       //  дичь из доки redraggable
@@ -23,7 +21,7 @@ const [favorites,setFavorites] = useLocalStorage("[]","favorites")
             <InputField setTodos={setTodos} todos={todos} />
             <Favorites favorites={favorites} setFavorites={setFavorites} />
          </div>
-         {todos.map((todo:TodoTypes, index:number) => (
+         {todos.map((todo: TodoTypes, index: number) => (
             <Draggable
                cancel={`.${css.nonDraggable}`}
                onStop={(_, data) => updatePos(data, index)}
