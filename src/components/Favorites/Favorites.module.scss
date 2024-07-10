@@ -19,12 +19,20 @@
 
 :global(.ant-modal-root .ant-modal-mask) {
    // background-color: var(--random-bg-color) !important;
+<<<<<<< HEAD
    background-color: rgba(0, 0, 0, 0.151) !important;
    backdrop-filter: blur(3px);
 }
 :global(.ant-modal) {
    margin-top: 160px;
+=======
+   background-color: black !important;
+   opacity: 0.7 !important;
+>>>>>>> b1a6771b2054803429e7094b8b81872d4d073c86
 }
+// :global(.ant-modal) {
+//    margin-top: 160px;
+// }
 .modal {
    :global(.ant-modal-content) {
       background: none !important;
